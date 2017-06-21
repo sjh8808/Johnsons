@@ -1,0 +1,23 @@
+public class Solution {
+	private int hasOne(int i) {
+		int copynum = i;
+		boolean hasOne = false;
+		int OneCount=0;
+		while (copynum != 0) {
+			if ((copynum % 10) == 1) {
+				hasOne = true;
+				OneCount+=1;
+			}
+			copynum /= 10;
+		}
+		return OneCount;
+	}
+
+	public int NumberOf1Between1AndN_Solution(int n) {
+		int sum = 0;
+		for (int i = 1; i <= n; i++) {
+			sum += hasOne(i);
+		}
+		return sum;
+	}
+}
