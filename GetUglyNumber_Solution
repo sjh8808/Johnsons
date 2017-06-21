@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Solution {
+	List<Integer> array = new ArrayList<Integer>();
+
+	private boolean isUglyNumber(int number) {
+		if (number % 2 == 0) {
+			return isUglyNumber(number / 2);
+		} else if (number % 3 == 0) {
+			return isUglyNumber(number / 3);
+		} else if (number % 5 == 0) {
+			return isUglyNumber(number / 5);
+		} else
+			return number == 1 ? true : false;
+	}
+
+	public int GetUglyNumber_Solution(int index) {
+		int i = 1;
+		while (array.size() < index + 1) {
+			if (isUglyNumber(i) == true) {
+				array.add(i);
+			}
+			i++;
+		}
+		return array.get(index);
+	}
+}
